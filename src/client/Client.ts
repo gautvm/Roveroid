@@ -1,6 +1,7 @@
 import { Client } from "discord.js";
 import glob from "glob";
 import { promisify } from "util";
+import dotenv from "dotenv";
 
 import { Command } from "../structures/Command";
 import { Event } from "../structures/Event";
@@ -13,6 +14,7 @@ export class Astronova extends Client {
 
   public constructor() {
     super();
+    dotenv.config();
   }
 
   public async commandHandler() {
@@ -34,33 +36,14 @@ export class Astronova extends Client {
     for (const file of eventFiles) {
       const event = (await import(file)) as Event;
       this.events.push(event);
+
+      this.on(event.name, event.run);
     }
   }
 
   public start() {
     this.commandHandler();
     this.eventHandler();
-
-    this.on("ready", async () => {
-      console.log("Bot started");
-    });
-
-    this.on("message", (message) => {
-      if (message.author.bot) {
-        return;
-      }
-
-      const [commandName, ...args] = message.content
-        .slice(this.prefix.length)
-        .split(/ +/);
-
-      const command = this.commands.find((c) => c.name === commandName);
-
-      if (command) {
-        command.run(this, message, args);
-      }
-    });
-
-    this.login("");
+    this.login(process.env.API_KEY);
   }
 }
