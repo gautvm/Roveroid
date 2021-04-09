@@ -8,7 +8,7 @@ const ReadyEvent: Event = {
     client.user?.setPresence({
       activity: {
         type: "PLAYING",
-        name: "an!help",
+        name: "ro!help",
       },
 
       status: "online",
