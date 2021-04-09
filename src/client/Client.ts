@@ -1,4 +1,5 @@
 import { Client } from "discord.js";
+import consola, { Consola } from "consola";
 import glob from "glob";
 import { promisify } from "util";
 import dotenv from "dotenv";
@@ -9,6 +10,7 @@ import { Event } from "../structures/Event";
 export class Astronova extends Client {
   public prefix: string = "an!";
   public globPromise = promisify(glob);
+  public logger: Consola = consola;
   public commands: Array<Command> = new Array();
   public events: Array<Event> = new Array();
 

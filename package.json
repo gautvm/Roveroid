@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/gautam-paranjape/Astronova#readme",
   "dependencies": {
+    "consola": "^2.15.3",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "glob": "^7.1.6"
