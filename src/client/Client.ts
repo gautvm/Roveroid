@@ -1,4 +1,4 @@
-import { Client } from "discord.js";
+import { Client, Message, MessageEmbed, MessageEmbedOptions } from "discord.js";
 import consola, { Consola } from "consola";
 import glob from "glob";
 import { promisify } from "util";
@@ -47,5 +47,19 @@ export class Roveroid extends Client {
     this.commandHandler();
     this.eventHandler();
     this.login(process.env.API_KEY);
+  }
+
+  public embed(data: MessageEmbedOptions, message: Message): MessageEmbed {
+    return new MessageEmbed({
+      color: "a44908",
+      ...data,
+      footer: {
+        text: `${message.author.tag} | Roveroid`,
+        iconURL: message.author.displayAvatarURL({
+          dynamic: true,
+          format: "png",
+        }),
+      },
+    });
   }
 }
