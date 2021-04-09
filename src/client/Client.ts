@@ -1,5 +1,6 @@
 import { Client, Message, MessageEmbed, MessageEmbedOptions } from "discord.js";
 import consola, { Consola } from "consola";
+import { PrismaClient } from "@prisma/client";
 import glob from "glob";
 import { promisify } from "util";
 import dotenv from "dotenv";
@@ -10,6 +11,7 @@ import { Event } from "../structures/Event";
 export class Roveroid extends Client {
   public prefix: string = "ro!";
   public globPromise = promisify(glob);
+  public db: PrismaClient = new PrismaClient();
   public logger: Consola = consola;
   public commands: Array<Command> = new Array();
   public events: Array<Event> = new Array();

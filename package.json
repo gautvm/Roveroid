@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/gautam-paranjape/Astronova#readme",
   "dependencies": {
-    "@prisma/client": "^2.20.1",
+    "@prisma/client": "^2.19.0",
     "consola": "^2.15.3",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
