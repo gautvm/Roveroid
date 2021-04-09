@@ -1,4 +1,5 @@
 import { Command } from "../../structures/Command";
+import { evaluate } from "mathjs";
 
 const MathCommand: Command = {
   name: "math",
