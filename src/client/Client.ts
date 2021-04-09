@@ -6,9 +6,9 @@ import dotenv from "dotenv";
 import { Command } from "../structures/Command";
 import { Event } from "../structures/Event";
 
-const globPromise = promisify(glob);
 export class Astronova extends Client {
   public prefix: string = "an!";
+  public globPromise = promisify(glob);
   public commands: Array<Command> = new Array();
   public events: Array<Event> = new Array();
 
@@ -18,7 +18,7 @@ export class Astronova extends Client {
   }
 
   public async commandHandler() {
-    const commandFiles = await globPromise(
+    const commandFiles = await this.globPromise(
       `${__dirname}/../commands/**/*{.js,.ts}`
     );
 
@@ -29,7 +29,7 @@ export class Astronova extends Client {
   }
 
   public async eventHandler() {
-    const eventFiles = await globPromise(
+    const eventFiles = await this.globPromise(
       `${__dirname}/../events/**/*{.js,.ts}`
     );
 
