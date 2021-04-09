@@ -37,7 +37,7 @@ export class Astronova extends Client {
       const event = (await import(file)) as Event;
       this.events.push(event);
 
-      this.on(event.name, event.run);
+      this.on(event.name, event.run.bind(null, this));
     }
   }
 
