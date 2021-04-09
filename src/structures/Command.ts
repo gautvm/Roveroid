@@ -4,7 +4,7 @@ import { Message } from "discord.js";
 export interface Command {
   name: string;
   description: string;
-  category?: string;
+  category: string;
   aliases?: Array<string>;
   cooldown?: number;
   usage?: string;
