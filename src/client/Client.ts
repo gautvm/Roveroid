@@ -8,7 +8,7 @@ import { Command } from "../structures/Command";
 import { Event } from "../structures/Event";
 
 export class Roveroid extends Client {
-  public prefix: string = "an!";
+  public prefix: string = "ro!";
   public globPromise = promisify(glob);
   public logger: Consola = consola;
   public commands: Array<Command> = new Array();
