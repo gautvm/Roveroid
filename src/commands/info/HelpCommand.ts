@@ -6,3 +6,5 @@ const HelpCommand: Command = {
   category: "info",
   run(client, message, args) {},
 };
+
+export = HelpCommand;
