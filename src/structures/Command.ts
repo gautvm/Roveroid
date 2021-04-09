@@ -1,4 +1,4 @@
-import { Astronova } from "../client/Client";
+import { Roveroid } from "../client/Client";
 import { Message } from "discord.js";
 
 export interface Command {
@@ -9,5 +9,5 @@ export interface Command {
   cooldown?: number;
   usage?: string;
   ownerOnly?: boolean;
-  run: (client: Astronova, message: Message, args: string[]) => void;
+  run: (client: Roveroid, message: Message, args: string[]) => void;
 }

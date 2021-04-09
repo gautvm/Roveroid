@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 import { Command } from "../structures/Command";
 import { Event } from "../structures/Event";
 
-export class Astronova extends Client {
+export class Roveroid extends Client {
   public prefix: string = "an!";
   public globPromise = promisify(glob);
   public logger: Consola = consola;

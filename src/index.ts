@@ -1,5 +1,5 @@
-import { Astronova } from "./client/Client";
+import { Roveroid } from "./client/Client";
 
-const client: Astronova = new Astronova();
+const client: Roveroid = new Roveroid();
 
 client.start();
