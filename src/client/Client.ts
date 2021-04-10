@@ -7,11 +7,12 @@ import dotenv from "dotenv";
 
 import { Command } from "../structures/Command";
 import { Event } from "../structures/Event";
-
+import { Utils } from "../utils/Utils";
 export class Roveroid extends Client {
   public prefix: string = "ro!";
   public globPromise = promisify(glob);
   public db: PrismaClient = new PrismaClient();
+  public utils: Utils;
   public logger: Consola = consola;
   public commands: Array<Command> = new Array();
   public events: Array<Event> = new Array();
