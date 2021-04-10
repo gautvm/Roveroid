@@ -7,6 +7,9 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Test {
-  id Int @id
+model Poll {
+  id String @id
+  title String
+  content String
+  guildID Int
 }
