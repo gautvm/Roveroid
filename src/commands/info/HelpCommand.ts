@@ -17,6 +17,8 @@ const HelpCommand: Command = {
           message
         )
       );
+    } else {
+      const embed = client.embed({}, message);
     }
   },
 };
