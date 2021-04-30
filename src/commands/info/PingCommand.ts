@@ -7,7 +7,7 @@ const PingCommand: Command = {
   category: "info",
   aliases: ["latency"],
   run(client, message, args) {
-    return message.channel.send("Pinging...").then((msg) => {
+    message.channel.send("Pinging...").then((msg) => {
       msg.edit(
         `WebSocket Latency: **${client.ws.ping}** MS, Discord API Latency: **${
           msg.createdTimestamp - message.createdTimestamp
