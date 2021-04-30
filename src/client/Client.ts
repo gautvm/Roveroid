@@ -17,6 +17,7 @@ export class Roveroid extends Client {
   public logger: Consola = consola;
   public commands: Array<Command> = new Array();
   public events: Array<Event> = new Array();
+  public categories = new Set();
   public cooldowns = new Map();
   public owners: Array<string> = ["66176203648034406"];
 
@@ -32,7 +33,9 @@ export class Roveroid extends Client {
 
     for (const file of commandFiles) {
       const command = (await import(file)) as Command;
+
       this.commands.push(command);
+      this.categories.add(command.category);
     }
   }
 
