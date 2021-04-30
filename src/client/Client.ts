@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import { Command } from "../structures/Command";
 import { Event } from "../structures/Event";
 import { Utils } from "../utils/Utils";
+
 export class Roveroid extends Client {
   public prefix: string = "ro!";
   public globPromise = promisify(glob);
