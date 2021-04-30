@@ -17,6 +17,7 @@ export class Roveroid extends Client {
   public logger: Consola = consola;
   public commands: Array<Command> = new Array();
   public events: Array<Event> = new Array();
+  public cooldowns = new Map();
   public owners: Array<string> = ["66176203648034406"];
 
   public constructor() {

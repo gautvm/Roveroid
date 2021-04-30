@@ -2,6 +2,7 @@ import { Event } from "../../structures/Event";
 
 const MessageEvent: Event = {
   name: "message",
+
   run(client, message) {
     if (message.author.bot || !message.content.startsWith(client.prefix)) {
       return;

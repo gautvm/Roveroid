@@ -7,11 +7,10 @@ const MathCommand: Command = {
   aliases: ["vote", "ballot"],
   run(client, message, args) {
     if (!message.member?.permissions.has("MANAGE_CHANNELS")) {
-      message.channel.send(
+      return message.channel.send(
         client.embed(
           {
-            description:
-              "You need to have the **Manage Channels** permission!s",
+            description: "You need to have the **Manage Channels** permission!",
           },
           message
         )
