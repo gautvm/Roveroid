@@ -15,9 +15,18 @@ const MessageEvent: Event = {
       client.commands.find((c) => c.name === cmd) ||
       client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
 
-    if (command) {
-      command.run(client, message, args);
+    if (
+      command?.ownerOnly &&
+      command?.ownerOnly == true &&
+      !client.owners.includes(message.author.id)
+    ) {
+      message.channel.send(
+        client.embed({ description: "This command is owner-only!" }, message)
+      );
+      return;
     }
+
+    command?.run(client, message, args);
   },
 };
 
