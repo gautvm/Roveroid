@@ -1,4 +1,10 @@
-import { Client, Message, MessageEmbed, MessageEmbedOptions } from "discord.js";
+import {
+  Client,
+  Collection,
+  Message,
+  MessageEmbed,
+  MessageEmbedOptions,
+} from "discord.js";
 import consola, { Consola } from "consola";
 import { PrismaClient } from "@prisma/client";
 import glob from "glob";
@@ -15,8 +21,8 @@ export class Roveroid extends Client {
   public db: PrismaClient = new PrismaClient();
   public utils: Utils;
   public logger: Consola = consola;
-  public commands: Array<Command> = new Array();
-  public events: Array<Event> = new Array();
+  public commands: Collection<string, Command> = new Collection();
+  public events: Collection<string, Event> = new Collection();
   public categories = new Set();
   public cooldowns = new Map();
   public owners: Array<string> = ["66176203648034406"];
@@ -34,8 +40,10 @@ export class Roveroid extends Client {
     for (const file of commandFiles) {
       const command = (await import(file)) as Command;
 
-      this.commands.push(command);
+      this.commands.set(command.name, command);
       this.categories.add(command.category);
+
+      console.log(`Loaded command ${command.name} in ${command.category}`);
     }
   }
 
@@ -46,9 +54,11 @@ export class Roveroid extends Client {
 
     for (const file of eventFiles) {
       const event = (await import(file)) as Event;
-      this.events.push(event);
+      this.events.set(event.name, event);
 
       this.on(event.name, event.run.bind(null, this));
+
+      console.log(`Loaded event ${event.name}`);
     }
   }
 

@@ -21,7 +21,7 @@ const MessageEvent: Event = {
       command?.ownerOnly == true &&
       !client.owners.includes(message.author.id)
     ) {
-      message.channel.send(
+      return message.channel.send(
         client.embed({ description: "This command is owner-only!" }, message)
       );
       return;

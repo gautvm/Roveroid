@@ -5,6 +5,7 @@ const MathCommand: Command = {
   name: "math",
   description: "Evaluates mathematics",
   category: "utils",
+  usage: "ro!math <equation>",
   run(client, message, args) {},
 };
 

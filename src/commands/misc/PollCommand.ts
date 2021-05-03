@@ -5,6 +5,7 @@ const MathCommand: Command = {
   description: "Creates a poll",
   category: "misc",
   aliases: ["vote", "ballot"],
+  usage: "ro!poll <channel> <content>",
   run(client, message, args) {
     if (!message.member?.permissions.has("MANAGE_CHANNELS")) {
       return message.channel.send(
