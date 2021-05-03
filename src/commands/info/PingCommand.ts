@@ -2,8 +2,7 @@ import { Command } from "../../structures/Command";
 
 const PingCommand: Command = {
   name: "ping",
-  description:
-    "Provides the latency of the WebSocket, as well as the Discord API latency.",
+  description: "Provides the ping of the bot",
   category: "info",
   aliases: ["latency"],
   usage: "ro!ping",

@@ -27,8 +27,12 @@ const HelpCommand: Command = {
         return message.channel.send(
           client.embed(
             {
-              title: `Information on ${command.name}`,
-              description: command.description,
+              title: `Command Information`,
+              description: `
+              **Name:** \`${command.name}\`
+              **Description:** \`${command.description}\`
+              **Category:** \`${command.category}\`
+              `,
             },
             message
           )
