@@ -24,7 +24,6 @@ const MessageEvent: Event = {
       return message.channel.send(
         client.embed({ description: "This command is owner-only!" }, message)
       );
-      return;
     }
 
     command?.run(client, message, args);
