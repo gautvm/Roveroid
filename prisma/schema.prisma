@@ -13,3 +13,8 @@ model Poll {
   content String
   guildID Int
 }
+
+model Guild {
+  id String @id
+  prefix String
+}
